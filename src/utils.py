@@ -48,4 +48,13 @@ def evaluate_model(X_train, y_train, X_test, y_test, models,param):
     except Exception as e:
         logging.error(f"Error occurred during model evaluation: {e}")
         raise e
+def load_object(file_path):
+    """
+    Load a pickled object from the specified file path.
+    """
+    try:
+        with open(file_path, "rb") as file_obj:
+            return dill.load(file_obj)
+    except Exception as e:
+        raise CustomException(error_message="Error in loading the object",error_detail=sys)
     
